@@ -76,7 +76,7 @@ def mix_up(a, b):
   if len(a) < 2 or len(b) < 2:
       raise AssertionError('len a or b has to be >= 2')
   g = lambda a1, twoLetter: twoLetter + a1[2:]
-  #print(a, b[0:2], g(a, b[0:2]))
+  # print(a, b[0:2], g(a, b[0:2]))
   return g(a, b[0:2]) + ' ' + g(b, a[0:2])
 
 
@@ -106,7 +106,6 @@ def main():
   test(both_ends('Hello'), 'Helo')
   test(both_ends('a'), '')
   test(both_ends('xyz'), 'xyyz')
-
   
   print
   print ('fix_start')
