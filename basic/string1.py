@@ -2,6 +2,7 @@
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
+from builtins import str, AssertionError
 
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
@@ -25,7 +26,9 @@
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
   # +++your code here+++
-  return
+  if count >= 10 :
+    return 'Number of donuts: many'
+  return 'Number of donuts: ' + str(count)
 
 
 # B. both_ends
@@ -35,7 +38,10 @@ def donuts(count):
 # is less than 2, return instead the empty string.
 def both_ends(s):
   # +++your code here+++
-  return
+  s1 = str(s)
+  if len(s1) < 2:
+    return ''
+  return s1[:2] + s1[-2:]
 
 
 # C. fix_start
@@ -49,7 +55,13 @@ def both_ends(s):
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
   # +++your code here+++
-  return
+  s1 = str(s)
+  if len(s1) == 1:
+      return s1
+  firstLetter = s1[0]
+  s2 = s1.replace(firstLetter, '*')
+  
+  return firstLetter + s2[1:]
 
 
 # D. MixUp
@@ -61,7 +73,11 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
   # +++your code here+++
-  return
+  if len(a) < 2 or len(b) < 2:
+      raise AssertionError('len a or b has to be >= 2')
+  g = lambda a1, twoLetter: twoLetter + a1[2:]
+  #print(a, b[0:2], g(a, b[0:2]))
+  return g(a, b[0:2]) + ' ' + g(b, a[0:2])
 
 
 # Provided simple test() function used in main() to print
@@ -71,13 +87,13 @@ def test(got, expected):
     prefix = ' OK '
   else:
     prefix = '  X '
-  print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
+  print ('%s got: %s expected: %s' % (prefix, repr(got), repr(expected)))
 
 
 # Provided main() calls the above functions with interesting inputs,
 # using test() to check if each result is correct or not.
 def main():
-  print 'donuts'
+  print ('donuts')
   # Each line calls donuts, compares its result to the expected for that call.
   test(donuts(4), 'Number of donuts: 4')
   test(donuts(9), 'Number of donuts: 9')
@@ -85,7 +101,7 @@ def main():
   test(donuts(99), 'Number of donuts: many')
 
   print
-  print 'both_ends'
+  print ('both_ends')
   test(both_ends('spring'), 'spng')
   test(both_ends('Hello'), 'Helo')
   test(both_ends('a'), '')
@@ -93,14 +109,14 @@ def main():
 
   
   print
-  print 'fix_start'
+  print ('fix_start')
   test(fix_start('babble'), 'ba**le')
   test(fix_start('aardvark'), 'a*rdv*rk')
   test(fix_start('google'), 'goo*le')
   test(fix_start('donut'), 'donut')
 
   print
-  print 'mix_up'
+  print ('mix_up')
   test(mix_up('mix', 'pod'), 'pox mid')
   test(mix_up('dog', 'dinner'), 'dig donner')
   test(mix_up('gnash', 'sport'), 'spash gnort')

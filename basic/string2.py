@@ -17,7 +17,13 @@
 # Return the resulting string.
 def verbing(s):
   # +++your code here+++
-  return
+  if len(s) >= 3: 
+    if s[-3:] == 'ing':
+        return s + 'ly'
+    else:
+        return s + 'ing'
+    
+  return s
 
 
 # E. not_bad
@@ -30,7 +36,15 @@ def verbing(s):
 # This dinner is good!
 def not_bad(s):
   # +++your code here+++
-  return
+  s1 = str(s)
+  idx1= s1.find('not')
+  idx2 = s1.find('bad')
+  
+  if(idx1 < idx2):
+    temp1 = s[:idx1]
+    temp2 = s[idx2 + 3:]
+    return temp1 + 'good' + temp2
+  return s1
 
 
 # F. front_back
@@ -42,7 +56,24 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
   # +++your code here+++
-  return
+  afront = ''
+  bfront = ''
+  aback = ''
+  bback = ''
+  aidx = 0
+  bidx = 0
+  if len(a)%2 == 0:
+      aidx = int(len(a) / 2)
+  else:
+      aidx = int((len(a) - 1)/2 + 1)
+      
+  if len(b)%2 == 0:
+      bidx = int(len(b) / 2)
+  else:
+      bidx = int((len(b) - 1)/2 + 1)
+  ff = lambda s, idx: s[:idx]
+  fb = lambda s, idx: s[idx:] 
+  return ff(a, aidx) + ff(b, bidx) + fb(a, aidx) + fb(b, bidx)
 
 
 # Simple provided test() function used in main() to print
@@ -52,26 +83,26 @@ def test(got, expected):
     prefix = ' OK '
   else:
     prefix = '  X '
-  print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
+  print ('%s got: %s expected: %s' % (prefix, repr(got), repr(expected)))
 
 
 # main() calls the above functions with interesting inputs,
 # using the above test() to check if the result is correct or not.
 def main():
-  print 'verbing'
+  print ('verbing')
   test(verbing('hail'), 'hailing')
   test(verbing('swiming'), 'swimingly')
   test(verbing('do'), 'do')
 
   print
-  print 'not_bad'
+  print ('not_bad')
   test(not_bad('This movie is not so bad'), 'This movie is good')
   test(not_bad('This dinner is not that bad!'), 'This dinner is good!')
   test(not_bad('This tea is not hot'), 'This tea is not hot')
   test(not_bad("It's bad yet not"), "It's bad yet not")
 
   print
-  print 'front_back'
+  print ('front_back')
   test(front_back('abcd', 'xy'), 'abxcdy')
   test(front_back('abcde', 'xyz'), 'abcxydez')
   test(front_back('Kitten', 'Donut'), 'KitDontenut')

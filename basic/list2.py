@@ -14,7 +14,17 @@
 # modify the passed in list.
 def remove_adjacent(nums):
   # +++your code here+++
-  return
+  if len(nums) == 0: return nums
+  lnums = list(nums)
+  lnums.sort(key=None, reverse=False)
+  currentIndex = 0
+  currentIndex = lnums[0]
+  for n in lnums[1:]:
+    if n == currentIndex:
+        lnums.remove(n)
+    else:
+        currentIndex = n
+  return lnums
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
@@ -41,18 +51,18 @@ def test(got, expected):
     prefix = ' OK '
   else:
     prefix = '  X '
-  print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
+  print ('%s got: %s expected: %s' % (prefix, repr(got), repr(expected)))
 
 
 # Calls the above functions with interesting inputs.
 def main():
-  print 'remove_adjacent'
+  print ('remove_adjacent')
   test(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
   test(remove_adjacent([2, 2, 3, 3, 3]), [2, 3])
   test(remove_adjacent([]), [])
 
   print
-  print 'linear_merge'
+  print ('linear_merge')
   test(linear_merge(['aa', 'xx', 'zz'], ['bb', 'cc']),
        ['aa', 'bb', 'cc', 'xx', 'zz'])
   test(linear_merge(['aa', 'xx'], ['bb', 'cc', 'zz']),
@@ -63,3 +73,11 @@ def main():
 
 if __name__ == '__main__':
   main()
+  '''test = [1,2,3]
+  a = 0
+  a = test[0]
+  print(a)
+  for n in test:
+    if a == 0: print ('failed case: %' % a)'''
+    
+  
