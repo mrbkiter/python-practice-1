@@ -2,6 +2,7 @@
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
+from builtins import tuple
 
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
@@ -22,8 +23,10 @@
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
   # +++your code here+++
-  
-  return
+  count = 0
+  for w in words:
+      if len(w) >= 2 and w[0] == w[-1]: count +=1
+  return count
 
 
 # B. front_x
@@ -34,8 +37,17 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-  # +++your code here+++
-  return
+    # +++your code here+++
+    lx = []
+    lWithoutX = []
+    for w in words:
+        if w[0] == 'x': lx.append(w)
+        else: lWithoutX.append(w)
+    lx.sort()
+    #try with lambda x
+    lWithoutX.sort()
+    lx.extend(lWithoutX)
+    return lx
 
 
 
@@ -47,7 +59,9 @@ def front_x(words):
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
   # +++your code here+++
-  return
+  lTuples = list(tuples)
+  lTuples.sort(key=lambda key: key[1])
+  return lTuples
 
 
 # Simple provided test() function used in main() to print
