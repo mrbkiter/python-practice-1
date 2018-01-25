@@ -8,6 +8,7 @@
 
 # Additional basic string exercises
 
+
 # D. verbing
 # Given a string, if its length is at least 3,
 # add 'ing' to its end.
@@ -41,7 +42,7 @@ def not_bad(s):
   n = s.find('not')
   b = s.find('bad')
   if n != -1 and b != -1 and b > n:
-    s = s[:n] + 'good' + s[b+3:]
+    s = s[:n] + 'good' + s[b + 3:]
   return s
   # LAB(replace solution)
   # return
@@ -101,6 +102,7 @@ def main():
   test(front_back('abcd', 'xy'), 'abxcdy')
   test(front_back('abcde', 'xyz'), 'abcxydez')
   test(front_back('Kitten', 'Donut'), 'KitDontenut')
+
 
 if __name__ == '__main__':
   main()

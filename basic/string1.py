@@ -4,9 +4,9 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 from builtins import str, AssertionError
 
+
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
-
 # Basic string exercises
 # Fill in the code for the functions below. main() is already set up
 # to call the functions with a few different inputs,
@@ -15,8 +15,6 @@ from builtins import str, AssertionError
 # which is just a placeholder for your code.
 # It's ok if you do not complete all the functions, and there
 # are some additional functions to try in string2.py.
-
-
 # A. donuts
 # Given an int count of a number of donuts, return a string
 # of the form 'Number of donuts: <count>', where <count> is the number

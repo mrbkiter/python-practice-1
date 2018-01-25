@@ -75,7 +75,7 @@ def print_mimic(mimic_dict, word):
   # LAB(begin solution)
   for unused_i in range(200):
     print word,
-    nexts = mimic_dict.get(word)          # Returns None if not found
+    nexts = mimic_dict.get(word)  # Returns None if not found
     if not nexts:
       nexts = mimic_dict['']  # Fallback to '' if not found
     word = random.choice(nexts)

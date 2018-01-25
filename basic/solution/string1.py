@@ -118,7 +118,6 @@ def main():
   test(both_ends('Hello'), 'Helo')
   test(both_ends('a'), '')
   test(both_ends('xyz'), 'xyyz')
-
   
   print
   print 'fix_start'

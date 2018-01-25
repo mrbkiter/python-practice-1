@@ -2,13 +2,8 @@
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
-from builtins import FileNotFoundError
-import operator
-from audioop import reverse
-
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
-
 """Wordcount exercise
 Google's Python class
 
@@ -40,20 +35,26 @@ print_words() and print_top().
 
 """
 
+from audioop import reverse
+from builtins import FileNotFoundError
+import operator
 import sys
+
 
 def processFileWordsAndCount(filename):
     try:
         f = open(filename, 'rU')
         words = {}
-        for line in f:   ## iterates over the lines of the file
+        for line in f:  # # iterates over the lines of the file
             for s in line.split():
                 key = s.lower()
-                words[key]= words.get(key, 0) + 1
+                words[key] = words.get(key, 0) + 1
         f.close()
     except FileNotFoundError:
-        print('file %s not found' % filename )
+        print('file %s not found' % filename)
     return words
+
+
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
@@ -64,15 +65,17 @@ def print_words(filename):
     for key in sorted(words.keys()):
         print(key, words[key])
 
+
 def print_top(filename, topNum):
-    #print('print_top %' % filename)
+    # print('print_top %' % filename)
     words = processFileWordsAndCount(filename)
     sortedDict = sorted(words.items(), key=lambda k: k[1], reverse=True)
-    #print(sortedDict)
-    #words.items().
+    # print(sortedDict)
+    # words.items().
     for i in range(topNum):
         print(sortedDict[i])
-###
+# ##
+
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
@@ -91,9 +94,10 @@ def main():
     print ('unknown option: ' + option)
     sys.exit(1)
 
+
 if __name__ == '__main__':
-  #main()
-  #print_words('alice.txt')
+  # main()
+  # print_words('alice.txt')
   
   print_top('alice.txt', 20)
   '''

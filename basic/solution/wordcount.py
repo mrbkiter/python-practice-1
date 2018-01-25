@@ -39,14 +39,13 @@ print_words() and print_top().
 
 import sys
 
+
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
-
 #### LAB(begin solution)
-
 def word_count_dict(filename):
   """Returns a word/count dict for this filename."""
   # Utility used by count() and Topcount().
@@ -109,6 +108,7 @@ def main():
   else:
     print 'unknown option: ' + option
     sys.exit(1)
+
 
 if __name__ == '__main__':
   main()

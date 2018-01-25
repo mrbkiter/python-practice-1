@@ -8,6 +8,7 @@
 
 # Additional basic string exercises
 
+
 # D. verbing
 # Given a string, if its length is at least 3,
 # add 'ing' to its end.
@@ -37,7 +38,7 @@ def verbing(s):
 def not_bad(s):
   # +++your code here+++
   s1 = str(s)
-  idx1= s1.find('not')
+  idx1 = s1.find('not')
   idx2 = s1.find('bad')
   
   if(idx1 < idx2):
@@ -62,15 +63,15 @@ def front_back(a, b):
   bback = ''
   aidx = 0
   bidx = 0
-  if len(a)%2 == 0:
+  if len(a) % 2 == 0:
       aidx = int(len(a) / 2)
   else:
-      aidx = int((len(a) - 1)/2 + 1)
+      aidx = int((len(a) - 1) / 2 + 1)
       
-  if len(b)%2 == 0:
+  if len(b) % 2 == 0:
       bidx = int(len(b) / 2)
   else:
-      bidx = int((len(b) - 1)/2 + 1)
+      bidx = int((len(b) - 1) / 2 + 1)
   ff = lambda s, idx: s[:idx]
   fb = lambda s, idx: s[idx:] 
   return ff(a, aidx) + ff(b, bidx) + fb(a, aidx) + fb(b, bidx)
@@ -106,6 +107,7 @@ def main():
   test(front_back('abcd', 'xy'), 'abxcdy')
   test(front_back('abcde', 'xyz'), 'abcxydez')
   test(front_back('Kitten', 'Donut'), 'KitDontenut')
+
 
 if __name__ == '__main__':
   main()

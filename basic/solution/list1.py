@@ -15,6 +15,7 @@
 # It's ok if you do not complete all the functions, and there
 # are some additional functions to try in list2.py.
 
+
 # A. match_ends
 # Given a list of strings, return the count of the number of
 # strings where the string length is 2 or more and the first
@@ -63,6 +64,7 @@ def last(a):
   return a[-1]
 # LAB(end solution)
 
+
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
 # order by the last element in each tuple.
@@ -103,7 +105,6 @@ def main():
        ['xaa', 'xcc', 'aaa', 'bbb', 'ccc'])
   test(front_x(['mix', 'xyz', 'apple', 'xanadu', 'aardvark']),
        ['xanadu', 'xyz', 'aardvark', 'apple', 'mix'])
-
        
   print
   print 'sort_last'

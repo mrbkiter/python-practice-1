@@ -8,6 +8,7 @@
 
 # Additional basic list exercises
 
+
 # D. Given a list of numbers, return a list where
 # all adjacent == elements have been reduced to a single element,
 # so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
@@ -45,8 +46,8 @@ def linear_merge(list1, list2):
                 list2.remove(l2)
 
     if len(list1) > 0: result = result + list1
-    if len(list2) > 0: result  =result + list2
-    #result.sort(key=None, reverse=False)
+    if len(list2) > 0: result = result + list2
+    # result.sort(key=None, reverse=False)
     return result
 
 # Note: the solution above is kind of cute, but unforunately list.pop(0)
@@ -93,5 +94,4 @@ if __name__ == '__main__':
   print(a)
   for n in test:
     if a == 0: print ('failed case: %' % a)'''
-    
   

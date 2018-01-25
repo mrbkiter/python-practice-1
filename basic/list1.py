@@ -4,9 +4,9 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 from builtins import tuple
 
+
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
-
 # Basic list exercises
 # Fill in the code for the functions below. main() is already set up
 # to call the functions with a few different inputs,
@@ -15,7 +15,6 @@ from builtins import tuple
 # which is just a placeholder for your code.
 # It's ok if you do not complete all the functions, and there
 # are some additional functions to try in list2.py.
-
 # A. match_ends
 # Given a list of strings, return the count of the number of
 # strings where the string length is 2 or more and the first
@@ -25,7 +24,7 @@ def match_ends(words):
   # +++your code here+++
   count = 0
   for w in words:
-      if len(w) >= 2 and w[0] == w[-1]: count +=1
+      if len(w) >= 2 and w[0] == w[-1]: count += 1
   return count
 
 
@@ -44,11 +43,10 @@ def front_x(words):
         if w[0] == 'x': lx.append(w)
         else: lWithoutX.append(w)
     lx.sort()
-    #try with lambda x
+    # try with lambda x
     lWithoutX.sort()
     lx.extend(lWithoutX)
     return lx
-
 
 
 # C. sort_last
@@ -89,7 +87,6 @@ def main():
        ['xaa', 'xcc', 'aaa', 'bbb', 'ccc'])
   test(front_x(['mix', 'xyz', 'apple', 'xanadu', 'aardvark']),
        ['xanadu', 'xyz', 'aardvark', 'apple', 'mix'])
-
        
   print
   print ('sort_last')
