@@ -8,6 +8,7 @@
 
 import sys
 import re
+from builtins import sorted
 
 """Baby Names exercise
 
@@ -41,7 +42,31 @@ def extract_names(filename):
   ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
   """
   # +++your code here+++
-  return
+  result = []
+  names = {}
+  # Open file
+  f = open(filename, 'r')
+  year = re.search(r'Popularity\s+in\s+(\d+)' , f.read())
+  if year:
+      result.append(year.group(1))
+  f.seek(0)
+  # Feed the file text into findall(); it returns a list of all the found strings
+  #tuples = re.findall(r'<tr.+><td>\d+</td><td>(\w*)</td><td>(\w*)</td></tr>', f.read())
+  tuples = re.findall(r'<tr.+><td>(\d+)</td><td>(\w*)</td><td>(\w*)</td>', f.read())
+  f.close()
+  for row in tuples:
+      rank = row[0] 
+      boy = row[1]
+      girl = row[2]
+      #print(name[0] + ' ' + name[1])
+      names[boy] = rank
+      names[girl] = rank
+  #print(dict)
+  #print(s.group())
+  sorted_names = sorted(names.items(), key=lambda k: k[0])
+  for sortedName in sorted_names: 
+      result.append('%s %d' % (sortedName[0], int(sortedName[1]))) 
+  return result
 
 
 def main():
@@ -51,7 +76,7 @@ def main():
   args = sys.argv[1:]
 
   if not args:
-    print 'usage: [--summaryfile] file [file ...]'
+    print ('usage: [--summaryfile] file [file ...]')
     sys.exit(1)
 
   # Notice the summary flag and remove it from args if it is present.
@@ -64,5 +89,14 @@ def main():
   # For each filename, get the names, then either print the text output
   # or write it to a summary file
   
-if __name__ == '__main__':
-  main()
+#if __name__ == '__main__':
+  #main()
+result = extract_names('baby1994.html')
+print(result)
+#match = re.search(r'iii', 'piiig') #=>  found, match.group() == "iii"
+'''text = r'<tr align="right"><td>118</td><td>Luke</td><td>Sabrina</td></tr>'
+tuples = re.findall(r'<tr.+><td>\d+</td><td>(\w*)</td><td>(\w*)</td></tr>', text)
+for n in tuples:
+    print(n[0] + ' ' + n[1])'''
+#if match:
+#    print('found: %s' % match.group())  
